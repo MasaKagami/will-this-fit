@@ -12,17 +12,66 @@ function isProductPage() {
 // Function to determine the product type based on page content
 //work on this
 function getProductType() {
-    const title = document.title.toLowerCase();
-    const url = window.location.href.toLowerCase();
-    // Placeholder logic - refine based on actual page content or structure
-    if (title.includes("t-shirt") || url.includes("t-shirt")) {
-        return "t-shirt";
-    } else if (title.includes("jeans") || url.includes("jeans")) {
-        return "jeans";
-    }
-    // Add more conditions as needed for different product types
+    // Attempt to identify product type based on URL keywords
+    const urlProductType = getProductTypeFromUrl();
+    if (urlProductType) return urlProductType;
     
+    // Attempt to identify product type based on meta tags and structured data
+    const metaProductType = getProductTypeFromMetaTags();
+    if (metaProductType) return metaProductType;
+    
+    const titleProductType = getProductTypeFromTitle();
+    if (titleProductType) return titleProductType;
+
     return null; // Return null if no specific product type is identified
+}
+
+function getProductTypeFromUrl() {
+    const url = window.location.href.toLowerCase();
+    if (url.includes("t-shirt") || url.includes("tees")) {
+        return "t-shirt";
+    } else if (url.includes("jeans")) {
+        return "jeans";
+    } else if (url.includes("sneakers") || url.includes("shoes")) {
+        return "sneakers";
+    } else if (url.includes("dress")) {
+        return "dress";
+    }
+    // Add more conditions as needed
+    return null;
+}
+
+function getProductTypeFromMetaTags() {
+    const metaTags = document.querySelectorAll('meta[name="description"], meta[property="og:description"]');
+    for (let tag of metaTags) {
+        const content = tag.getAttribute('content').toLowerCase();
+        if (content.includes("t-shirt") || content.includes("tee")) {
+            return "t-shirt";
+        } else if (content.includes("jeans")) {
+            return "jeans";
+        } else if (content.includes("sneakers") || content.includes("shoes")) {
+            return "sneakers";
+        } else if (content.includes("dress")) {
+            return "dress";
+        }
+        // Add more conditions as needed
+    }
+    return null;
+}
+
+function getProductTypeFromTitle() {
+    const title = document.title.toLowerCase();
+    if (title.includes("t-shirt") || title.includes("tee")) {
+        return "t-shirt";
+    } else if (title.includes("jeans")) {
+        return "jeans";
+    } else if (title.includes("sneakers") || title.includes("shoes")) {
+        return "sneakers";
+    } else if (title.includes("dress")) {
+        return "dress";
+    }
+    // Add more conditions as needed for other product types
+    return null;
 }
 
 // Listen for a message from the popup
@@ -38,3 +87,4 @@ if (isProductPage()) {
         console.log("Background script response:", response);
     });
 }
+

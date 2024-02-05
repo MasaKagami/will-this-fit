@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will This Fit? Popup</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>will this fit?</h1>
+        <h2>Size Recommendation</h2>
+        <button id="checkSizeButton" class="button">Check Size for This Product</button>
+        <div id="recommendationResult" class="info"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

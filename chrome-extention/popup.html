@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <title>will this fit?</title>
     <style>
         body {
             width: 320px;
-            font-family: Helvetica, sans-serif;
+            font-family:'lexend', helvetica;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
@@ -31,7 +34,7 @@
         }
         .header-text {
             font-size: 15px;
-            font-weight: bold;
+            font-weight: medium;
             margin-left: 10px;
         }
         .menu-icon {
@@ -46,16 +49,26 @@
         }
         .website-url{
             text-align: center;
-            margin: 20px;
+            font-size: large;
+            font-weight: 400;
+            padding:10px;
+            border-bottom: 1px solid rgb(220, 220, 220);
         }
         .recommendation-count{
-            text-align: center;
-            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgb(220, 220, 220);
+            font-weight: 400;
+        }
+        .count-number{
+            color: red;
+            font-weight: 600;
         }
         .recommendation-button {
             margin-top: 20px;
             padding: 10px 0;
-            background-color: #4CAF50;
+            background-color: rgb(110, 110, 110);
             color: white;
             border: none;
             cursor: pointer;
@@ -75,8 +88,11 @@
         <div class="menu-icon"></div>
     </div>
     <div class="content-container">
-        <div class="website-url">Current Website: <span id="websiteUrl">uniqlo.com</span></div>
-        <div class="recommendation-count">Total Recommendations: <span id="recommendationCount">0</span></div>
+        <div class="recommendation-count">
+            Size Recommendations: <span id="recommendationCount"><span class="count-number">0</span> in Total</span>
+        </div>
+        <div class="website-url"><span id="websiteUrl">clothing.shop</span></div>
+        <img id="productImage" src="" alt="Product Image" style="max-width:100%; height:auto; display:none; margin-top:10px;">
         <button class="recommendation-button" id="getRecommendation">Get Size Recommendation</button>
     </div>
 

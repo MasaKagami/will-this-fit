@@ -46,3 +46,15 @@ function showSizeRecommendationPopup(recommendation) {
     // Implementation depends on your extension's UI design
     // For example, you could update a badge on the extension icon, open a popup, or send a message to the active tab to display an overlay
 }
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action === "doSomething") {
+        // Assume asyncFunction is an asynchronous function returning a Promise
+        asyncFunction().then(data => {
+            sendResponse({data: data});
+        }).catch(error => {
+            sendResponse({error: error.message});
+        });
+        return true; // Indicates an asynchronous response is expected
+    }
+});

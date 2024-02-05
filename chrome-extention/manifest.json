@@ -33,7 +33,7 @@
     ],
     "options_page": "options.html",
     "oauth2": {
-      "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+      "client_id": "592801403406-3hhiu1ku4cupd8ssb1f1kdqs52h1qdmq.apps.googleusercontent.com",
       "scopes": [
         "email",
         "profile"
@@ -41,7 +41,7 @@
     },
     "web_accessible_resources": [
       {
-        "resources": ["popup.html", "options.html"],
+        "resources": ["assets/logo.png", "assets/menu-icon.png"],
         "matches": ["<all_urls>"]
       }
     ]

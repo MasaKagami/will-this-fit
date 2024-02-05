@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>will this fit? Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            margin-top: 10px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>will this fit? - Size Preferences</h2>
+        <form id="sizePreferencesForm">
+            <label for="brandSelect">Brand:</label>
+            <select id="brandSelect">
+                <option value="">Select a brand</option>
+                <!-- Populate with brands -->
+            </select>
+
+            <label for="clothingTypeSelect">Clothing Type:</label>
+            <select id="clothingTypeSelect" disabled>
+                <option value="">First select a brand</option>
+                <!-- Options will be enabled and populated based on brand selection -->
+            </select>
+
+            <label for="clothingItemSelect">Specific Clothing:</label>
+            <select id="clothingItemSelect" disabled>
+                <option value="">First select a clothing type</option>
+                <!-- Options will be enabled and populated based on clothing type selection -->
+            </select>
+
+            <label for="sizeSelect">Known Size:</label>
+            <select id="sizeSelect" disabled>
+                <option value="">First select a clothing item</option>
+                <!-- Options will be enabled and populated based on specific clothing selection -->
+            </select>
+
+            <button type="submit">Save Preferences</button>
+        </form>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

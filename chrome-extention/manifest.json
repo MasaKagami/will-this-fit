@@ -1,0 +1,48 @@
+{
+    "manifest_version": 3,
+    "name": "will this fit?",
+    "description": "Personalized size recommendations for online shopping, tailored by your preferences and brand selections.",
+    "version": "1.0",
+    "icons":{
+      "16": "icon16.png",
+      "128": "icon128.png",
+      "1080": "icon1080.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "notifications",
+      "identity"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_icon": {
+        "16": "icon16.png",
+        "128": "icon128.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "will this fit?"
+    },
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "options_page": "options.html",
+    "oauth2": {
+      "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+      "scopes": [
+        "email",
+        "profile"
+      ]
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["popup.html", "options.html"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }

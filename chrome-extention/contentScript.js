@@ -2,11 +2,9 @@
 function isProductPage() {
     // Example: Check if the URL contains certain keywords indicative of a product page
     const urlContainsProductKeywords = /product|item|clothing|shop/.test(window.location.href.toLowerCase());
-    
     // Example: Check for the presence of specific HTML elements unique to product pages (e.g., size selection dropdown)
     const pageHasProductDetails = document.querySelector('.product-size-selector') !== null;
-
-    return urlContainsProductKeywords && pageHasProductDetails;
+    return urlContainsProductKeywords || pageHasProductDetails;
 }
 
 // Function to determine the product type based on page content
@@ -78,13 +76,17 @@ function getProductTypeFromTitle() {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === "getProductType") {
         sendResponse({productType: getProductType()});
+    } else if (request.action === "checkShoppingSite") {
+        // Determine if the current page is considered a shopping site
+        const isShoppingSite = isProductPage();
+        sendResponse({isShoppingSite: isShoppingSite});
     }
 });
 
 // Example: Send a message to the background script if a product page is detected
-if (isProductPage()) {
-    chrome.runtime.sendMessage({action: "productPageDetected", productType: getProductType()}, function(response) {
-        console.log("Background script response:", response);
-    });
-}
+// if (isProductPage()) {
+//     chrome.runtime.sendMessage({action: "productPageDetected", productType: getProductType()}, function(response) {
+//         console.log("Background script response:", response);
+//     });
+// }
 

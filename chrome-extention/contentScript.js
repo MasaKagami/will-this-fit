@@ -40,73 +40,36 @@ function getProductTypeFromUrl() {
 }
 
 function getProductTypeFromMetaTags() {
-    const metaTags = document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[property="og:title"');
+    const metaTags = document.querySelectorAll('meta[name="description"], meta[property="og:description"]');
     for (let tag of metaTags) {
         const content = tag.getAttribute('content').toLowerCase();
-        let productType = '';
         if (content.includes("t-shirt") || content.includes("tee")) {
-            productType = "t-shirt";
-        } else if (content.includes("sweatshirt") || content.includes("hoodie")) {
-            productType = "sweatshirt";
-        } else if (content.includes("sweaters") || content.includes("sweater")) {
-            productType = "sweater";
-        } else if (content.includes("cardigan")) {
-            productType = "cardigan";
-        } else if (content.includes("shirt")) {
-            productType = "shirt";
-        } else if (content.includes("polo shirt")) {
-            productType = "polo-shirt";
-        } else if (content.includes("pants")) {
-            productType = "pants";
+            return "t-shirt";
         } else if (content.includes("jeans")) {
-            productType = "jeans";
-        } else if (content.includes("sweatpants") || content.includes("joggers")) {
-            productType = "sweatpants";
-        } else if (content.includes("shorts") || content.includes("short")) {
-            productType = "shorts";
-        // firm above
+            return "jeans";
         } else if (content.includes("sneakers") || content.includes("shoes")) {
-            productType = "sneaker";
+            return "sneakers";
         } else if (content.includes("dress")) {
-            productType = "dress";
+            return "dress";
         }
         // Add more conditions as needed
     }
-    return productType;
+    return null;
 }
 
 function getProductTypeFromTitle() {
-    const content = document.title.toLowerCase();
-    let productType = '';
-    if (content.includes("t-shirt") || content.includes("tee")) {
-        productType = "t-shirt";
-    } else if (content.includes("sweatshirt") || content.includes("hoodie")) {
-        productType = "sweatshirt";
-    } else if (content.includes("sweaters") || content.includes("sweater")) {
-        productType = "sweater";
-    } else if (content.includes("cardigan")) {
-        productType = "cardigan";
-    } else if (content.includes("shirt")) {
-        productType = "shirt";
-    } else if (content.includes("polo shirt")) {
-        productType = "polo-shirt";
-    } else if (content.includes("pants")) {
-        productType = "pants";
-    } else if (content.includes("jeans")) {
-        productType = "jeans";
-    } else if (content.includes("sweatpants") || content.includes("joggers")) {
-        productType = "sweatpants";
-    } else if (content.includes("shorts") || content.includes("short")) {
-        productType = "shorts";
-    // firm above
-    } else if (content.includes("sneakers") || content.includes("shoes")) {
-        productType = "sneaker";
-    } else if (content.includes("dress")) {
-        productType = "dress";
+    const title = document.title.toLowerCase();
+    if (title.includes("t-shirt") || title.includes("tee")) {
+        return "t-shirt";
+    } else if (title.includes("jeans")) {
+        return "jeans";
+    } else if (title.includes("sneakers") || title.includes("shoes")) {
+        return "sneakers";
+    } else if (title.includes("dress")) {
+        return "dress";
     }
-    // Add more conditions as needed
     // Add more conditions as needed for other product types
-    return productType;
+    return null;
 }
 
 // Listen for a message from the popup
@@ -119,3 +82,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         sendResponse({isShoppingSite: isShoppingSite});
     }
 });
+
+// Example: Send a message to the background script if a product page is detected
+// if (isProductPage()) {
+//     chrome.runtime.sendMessage({action: "productPageDetected", productType: getProductType()}, function(response) {
+//         console.log("Background script response:", response);
+//     });
+// }
+

@@ -10,70 +10,63 @@ function isProductPage() {
 // Function to determine the product type based on page content
 //work on this
 function getProductType() {
-    const urlProductType = getProductTypeFromUrl();
-    if (urlProductType) return urlProductType;
-    const metaProductType = getProductTypeFromMetaTags();
-    if (metaProductType) return metaProductType;
-    const titleProductType = getProductTypeFromTitle();
-    if (titleProductType) return titleProductType;
-    return null; // Return null if no specific product type is identified
-}
-
-function getProductTypeFromUrl() {
-    const content = window.location.href.toLowerCase();
-    productType = '';
-    if (content.includes("t-shirt") || content.includes("tee")) {
-        productType = "t-shirt";
-    } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
-        productType = "sweatshirt";
-    } else if (content.includes("jeans")) {
-        productType = "jeans";
-    } else if (content.includes("sneakers") || content.includes("shoes")) {
-        productType = "sneakers";
-    } else if (content.includes("dress")) {
-        productType = "dress";
+    let productType = getProductTypeFromMetaTags();
+    if (productType !== '') {
+        console.log('Product type identified from meta tags:', productType);
+        return productType;
     }
-    // Add more conditions as needed
-    return productType;
+
+    // If still not found, try to get it from the page title.
+    productType = getProductTypeFromTitle();
+    if (productType !== '') {
+        console.log('Product type identified from page title:', productType);
+        return productType;
+    }
+
+    // If the product type wasn't found in any of the sources, return null.
+    console.log('No product type identified.');
+    return '';
 }
 
 function getProductTypeFromMetaTags() {
-    const metaTags = document.querySelectorAll('meta[name="description"], meta[property="og:description"]');
+    const metaTags = document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[property="og:title"]');
     for (let tag of metaTags) {
-        const content = tag.getAttribute('content').toLowerCase();
-        productType = '';
+        const content = tag.content.toLowerCase();
         if (content.includes("t-shirt") || content.includes("tee")) {
-            productType = "t-shirt";
+            return "t-shirt";
         } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
-            productType = "sweatshirt";
+            return "sweatshirt";
         } else if (content.includes("jeans")) {
-            productType = "jeans";
+            return "jeans";
         } else if (content.includes("sneakers") || content.includes("shoes")) {
-            productType = "sneakers";
+            return "sneakers";
         } else if (content.includes("dress")) {
-            productType = "dress";
+            return "dress";
+        } else if (content.includes("shorts")) {
+            return "short";
         }
         // Add more conditions as needed
     }
-    return productType;
+    return '';
 }
 
 function getProductTypeFromTitle() {
-    const content = document.title.toLowerCase();
-    productType = '';
-    if (content.includes("t-shirt") || conetent.includes("tee")) {
-        productType = "t-shirt";
-    } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
-        productType = "sweatshirt";
-    } else if (content.includes("jeans")) {
-        productType = "jeans";
-    } else if (content.includes("sneakers") || content.includes("shoes")) {
-        productType = "sneakers";
-    } else if (content.includes("dress")) {
-        productType = "dress";
+    const title = document.title.toLowerCase();
+    if (title.includes("t-shirt") || title.includes("tee")) {
+        return "t-shirt";
+    } else if (title.includes("sweatshirt") || title.includes("hoodie") || title.includes("sweatshirts") || title.includes("hoodies")) {
+        return "sweatshirt";
+    } else if (title.includes("jeans")) {
+        return "jeans";
+    } else if (title.includes("sneakers") || title.includes("shoes")) {
+        return "sneakers";
+    } else if (title.includes("dress")) {
+        return "dress";
+    } else if (title.includes("shorts")) {
+        return "short";
     }
     // Add more conditions as needed for other product types
-    return productType;
+    return '';
 }
 
 // Listen for a message from the popup

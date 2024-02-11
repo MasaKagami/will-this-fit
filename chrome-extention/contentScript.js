@@ -65,6 +65,7 @@ function getProductTypeFromTitle() {
     } else if (title.includes("shorts")) {
         return "short";
     }
+    // Add more conditions as needed
     // Add more conditions as needed for other product types
     return '';
 }

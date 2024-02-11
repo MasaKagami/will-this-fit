@@ -52,13 +52,16 @@ function displayShoppingSiteContent(tabId) {
     
     // Show dynamic content for shopping sites.
     document.getElementById('dynamicContent').style.display = 'block';
-    // Hide the placeholder image.
+    // Hide the placeholder image and message.
+    document.getElementById('sorryMessage').style.display = 'none'
     document.getElementById('placeholderImage').style.display = 'none';
 }
 
 // Shows the placeholder image and hides dynamic content.
 function showPlaceholderImage() {
     document.getElementById('placeholderImage').style.display = 'block'; // Show placeholder image.
+    document.getElementById('sorryMessage').style.display = 'block';
+
     document.getElementById('dynamicContent').style.display = 'none'; // Hide dynamic content.
 }
 

@@ -5,7 +5,6 @@ console.log("Popup script loaded!");
 
 // This function is called when the DOM content of the popup has been fully loaded.
 document.addEventListener('DOMContentLoaded', function() {
-    // Query the current activegit  tab in the browser.
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         // Send a message to the content script in the active tab to check if it's a shopping site.
         chrome.tabs.sendMessage(tabs[0].id, {action: "checkShoppingSite"}, function(response) {

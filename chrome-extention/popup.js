@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update the recommendation count, which should always be visible.
     updateRecommendationCount();
+    
+    const menuIcon = document.querySelector('.menu-icon');
+
+    menuIcon.addEventListener('click', function() {
+        // Redirect to the options.html page
+        window.location.href = 'options.html';
+    });
 });
 
 // Displays content specific to shopping sites.

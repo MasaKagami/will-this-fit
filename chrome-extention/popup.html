@@ -38,10 +38,11 @@
             margin-left: 10px;
         }
         .menu-icon {
-            height: 30px;
-            width: 30px;
+            height: 18px;
+            width: 18px;
             background: url('../assets/menu-icon.png') no-repeat center center;
             background-size: cover;
+            cursor:pointer
         }
 /* ////////////////////////////////////////// */
         .content-container {
@@ -87,6 +88,8 @@
             display: none;
             text-align: center;
             margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 600;
         }
         #placeholderImage{
             display:none;
@@ -108,18 +111,18 @@
             <img src="../assets/logo.png" alt="Logo">
             <span class="header-text">will this fit?</span>
         </div>
-        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>        
     </div>
 
     <div class="content-container">
-        <div class="recommendation-count">
-            Size Recommendations: <span id="recommendationCount"><span class="count-number">0</span> in Total</span>
-        </div>
         <div id="sorryMessage">
             <p>Sorry. Nothing to show you here</p>
         </div>
         <img id="placeholderImage" src="../assets/placeholder.png" alt="Placeholder Image">
         <div id="dynamicContent">
+            <div class="recommendation-count">
+                Size Recommendations: <span id="recommendationCount"><span class="count-number">0</span> in Total</span>
+            </div>
             <div class="website-url"><span id="websiteUrl">clothing.shop</span></div>
             <img id="productImage" src="" alt="Product Image" style="max-width:100%; height:auto; margin-top:10px;">
             <button class="recommendation-button" id="getRecommendation">Size Recommendation</button>

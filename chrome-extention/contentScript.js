@@ -10,6 +10,10 @@ function isProductPage() {
 // Function to determine the product type based on page content
 //work on this
 function getProductType() {
+    // Attempt to identify product type based on URL keywords
+    const urlProductType = getProductTypeFromUrl();
+    if (urlProductType) return urlProductType;
+    
     // Attempt to identify product type based on meta tags and structured data
     const metaProductType = getProductTypeFromMetaTags();
     if (metaProductType) return metaProductType;
@@ -18,6 +22,21 @@ function getProductType() {
     if (titleProductType) return titleProductType;
 
     return null; // Return null if no specific product type is identified
+}
+
+function getProductTypeFromUrl() {
+    const url = window.location.href.toLowerCase();
+    if (url.includes("t-shirt") || url.includes("tees")) {
+        return "t-shirt";
+    } else if (url.includes("jeans")) {
+        return "jeans";
+    } else if (url.includes("sneakers") || url.includes("shoes")) {
+        return "sneakers";
+    } else if (url.includes("dress")) {
+        return "dress";
+    }
+    // Add more conditions as needed
+    return null;
 }
 
 function getProductTypeFromMetaTags() {

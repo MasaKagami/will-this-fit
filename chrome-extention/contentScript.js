@@ -26,12 +26,20 @@ function getProductTypeFromUrl() {
         productType = "t-shirt";
     } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
         productType = "sweatshirt";
+    } else if (content.includes("shirt") || content.includes("shirts")) {
+        productType = "shirt";
+    } else if (content.includes("polo shirts") || content.includes("polo shirt")) {
+        productType = "polo-shirt";
+    } else if (content.includes("pants") || content.includes("pant")) {
+        productType = "pants";
     } else if (content.includes("jeans")) {
         productType = "jeans";
+    } else if (content.includes("sweatpants") || content.includes("joggers")) {
+        productType = "sweatpant";
+    } else if (content.includes("short") || content.includes("shorts")) {
+        productType = "short";
     } else if (content.includes("sneakers") || content.includes("shoes")) {
         productType = "sneakers";
-    } else if (content.includes("dress")) {
-        productType = "dress";
     }
     // Add more conditions as needed
     return productType;
@@ -46,12 +54,20 @@ function getProductTypeFromMetaTags() {
             productType = "t-shirt";
         } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
             productType = "sweatshirt";
+        } else if (content.includes("shirt") || content.includes("shirts")) {
+            productType = "shirt";
+        } else if (content.includes("polo shirts") || content.includes("polo shirt")) {
+            productType = "polo-shirt";
+        } else if (content.includes("pants") || content.includes("pant")) {
+            productType = "pants";
         } else if (content.includes("jeans")) {
             productType = "jeans";
+        } else if (content.includes("sweatpants") || content.includes("joggers")) {
+            productType = "sweatpant";
+        } else if (content.includes("short") || content.includes("shorts")) {
+            productType = "short";
         } else if (content.includes("sneakers") || content.includes("shoes")) {
             productType = "sneakers";
-        } else if (content.includes("dress")) {
-            productType = "dress";
         }
         // Add more conditions as needed
     }
@@ -61,16 +77,24 @@ function getProductTypeFromMetaTags() {
 function getProductTypeFromTitle() {
     const content = document.title.toLowerCase();
     let productType = '';
-    if (content.includes("t-shirt") || conetent.includes("tee")) {
+    if (content.includes("t-shirt") || content.includes("tee")) {
         productType = "t-shirt";
     } else if (content.includes("sweatshirt") || content.includes("hoodie") || content.includes("sweatshirts") || content.includes("hoodies")) {
         productType = "sweatshirt";
+    } else if (content.includes("shirt") || content.includes("shirts")) {
+        productType = "shirt";
+    } else if (content.includes("polo shirts") || content.includes("polo shirt")) {
+        productType = "polo-shirt";
+    } else if (content.includes("pants") || content.includes("pant")) {
+        productType = "pants";
     } else if (content.includes("jeans")) {
         productType = "jeans";
+    } else if (content.includes("sweatpants") || content.includes("joggers")) {
+        productType = "sweatpant";
+    } else if (content.includes("short") || content.includes("shorts")) {
+        productType = "short";
     } else if (content.includes("sneakers") || content.includes("shoes")) {
         productType = "sneakers";
-    } else if (content.includes("dress")) {
-        productType = "dress";
     }
     // Add more conditions as needed
     // Add more conditions as needed for other product types

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chrome.tabs.sendMessage(tabs[0].id, {action: "checkShoppingSite"}, function(response) {
             if (chrome.runtime.lastError) {
                 // Log any errors if the message couldn't be sent or there was no listener in the content script.
-                console.error("Error sending message:", chrome.runtime.lastError);
+                console.error("Error sending message:", chrome.runtime.lastError.message);
                 showPlaceholderImage(); // Show placeholder as a fallback
                 return;
             }
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // If the response indicates we're on a shopping site, display relevant info.
                 displayShoppingSiteContent(tabs[0].id);
             } else {
-                // If not a shopping site, or if there's no response indicating as such, show the placeholder image.
                 showPlaceholderImage();
             }
         });

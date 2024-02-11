@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Options - will this fit?</title>
+    <link rel="stylesheet" href="options.css"> <!-- Link to your CSS file for styling -->
+</head>
+<body>
+    <div id="loginSection">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label>Email</label>
+            <input type="email" placeholder="Type your email" required>
+            <label>Password</label>
+            <input type="password" placeholder="Type your password" required>
+            <button type="submit">Login</button>
+            <div id="alternativeLogin">
+                <span>Or login with</span>
+                <a href="#" id="googleSignIn">
+                    <img src='./assets/google.png' alt="Google sign-in">
+                </a>
+            </div>
+            <button type="button" id="createAccountBtn">Create An Account</button>
+        </form>
+    </div>
+    
+
+    <div id="preferencesSection" style="display:none;">
+        <h2>Your Clothing Size Preferences</h2>
+        <form id="preferencesForm">
+            <label for="tShirtSize">T-Shirt Size:</label>
+            <select id="tShirtSize">
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">Extra Large</option>
+            </select>
+
+            <label for="jeansSize">Jeans Size:</label>
+            <select id="jeansSize">
+                <!-- Add options for jeans sizes -->
+            </select>
+
+            <!-- Add more clothing preferences as needed -->
+
+            <button type="submit">Save Preferences</button>
+        </form>
+    </div>
+
+    <script src="options.js"></script> <!-- Link to your JS file for logic -->
+</body>
+</html>

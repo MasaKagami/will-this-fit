@@ -7,14 +7,43 @@ body {
 }
 
 h2 {
-    text-align: center;
+    margin: 0;
+    /* text-align: left; */
     color: #000;
-    padding-bottom: 15px;
+    /* padding-bottom: 15px; */
     font-weight: bold;
     font-size: 20px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2{
+    padding-right: 10px;
+}
+
+#viewPreferencesBtn {
+    width: 100px;
+    font-size: 10px;
+    padding: 10px 5px;
+    background-color: rbg(20,20,20);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10; /* Adjust size as needed */
+    align-self: center; /* Ensures vertical centering */
+}
+
+#viewPreferencesBtn:hover {
+    background-color: #0056b3;
+}
+
 #preferencesForm {
+    margin-top: 15px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;

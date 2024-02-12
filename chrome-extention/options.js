@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log('Please make all selections before saving.');
       }
   });
+  document.getElementById('viewPreferencesBtn').addEventListener('click', function() {
+    window.location.href = 'viewPreferences.html'; // Redirects to the "View Preferences" page
+  });
 });
 
 function populateDropdown(selectId, options, disabled) {

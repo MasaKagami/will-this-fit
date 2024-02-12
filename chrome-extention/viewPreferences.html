@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <title>View Preferences</title>
+    <style>
+        body {
+            font-family: 'lexend', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #f5f5f5;
+            width:320px;
+        }
+        .container {
+            width: 280px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .back-arrow {
+            cursor: pointer;
+            font-size: 24px;
+            /* margin-bottom: 20px; */
+            display: inline-block;
+        }
+        .preference-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-arrow">
+            &#8592; <!-- HTML entity for the left arrow -->
+        </div>
+        <h2>Your Saved Preferences</h2>
+        <div id="savedPreferences">
+            <!-- Saved preferences will be displayed here -->
+        </div>
+    </div>
+
+    <script src="viewPreferences.js"></script>
+</body>
+</html>
